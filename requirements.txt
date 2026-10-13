@@ -1,0 +1,12 @@
+pandas
+streamlit
+pyyaml
+python-dotenv
+openai
+anthropic
+langchain
+langchain-core
+langchain-anthropic
+langchain-openai
+langgraph
+pytest

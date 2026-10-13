@@ -1,0 +1,47 @@
+# מדרגות מס הכנסה, ביטוח לאומי/בריאות ושווי נקודת זיכוי — שנת מס 2026.
+#
+# ⚠️ מקורות: אתרי מחשבוני שכר ציבוריים (jobcalc.co.il, kolzchut.org.il,
+# bizportal.co.il, malam-payroll.com) שנבדקו ב-2026-10-13 — לא פרסום רשמי
+# ישיר מרשות המסים/המוסד לביטוח לאומי (לא אותר PDF רשמי נגיש בחיפוש).
+# המספרים האלה הם קירוב סביר לצורך הדמו, לא "אמת" מאומתת. לפני פיילוט אמיתי:
+# לאמת מול revenue.gov.il / btl.gov.il, ומול הדוגמאות המאושרות שיגיעו משטראוס
+# (ראו docs/spec.md — "מקורות המידע // עדיין לא הגיע").
+#
+# מקורות ששימשו לבניית הקובץ:
+#   - jobcalc.co.il/blog/income-tax-brackets-israel-employees-2026
+#   - kolzchut.org.il (נקודות זיכוי, מדרגות מס)
+#   - btl.gov.il/Publications/benefits_update/Documents/hozerkizba2026.pdf (חוזר רשמי — טרם נקרא ישירות)
+#   - malam-payroll.com/national-insurance-updates-for-2026
+
+source_note: "קירוב ממקורות משניים, 2026-10-13 — דורש אימות מול btl.gov.il / רשות המסים לפני פיילוט"
+tax_year: 2026
+
+# מדרגות מס הכנסה חודשיות (שכיר). כל מדרגה: עד איזה סכום חודשי חל השיעור
+# (upper_bound null = אין תקרה, המדרגה העליונה).
+income_tax_brackets_monthly:
+  - upper_bound: 7010
+    rate: 0.10
+  - upper_bound: 10060
+    rate: 0.14
+  - upper_bound: 19000
+    rate: 0.20
+  - upper_bound: 29000
+    rate: 0.31
+  - upper_bound: 41000
+    rate: 0.35
+  - upper_bound: 53000
+    rate: 0.47
+  - upper_bound: null
+    rate: 0.50
+
+# שווי נקודת זיכוי (לחודש, לנקודה אחת)
+credit_point_value_monthly: 242
+
+# ביטוח לאומי + ביטוח בריאות, חלק העובד — שתי מדרגות לפי אחוז מהשכר הממוצע במשק
+national_insurance_employee:
+  reduced_bracket_ceiling_monthly: 7703   # 60% מהשכר הממוצע במשק
+  reduced_rate_bituach_leumi: 0.0104
+  reduced_rate_health: 0.0323
+  full_rate_bituach_leumi: 0.07
+  full_rate_health: 0.0517
+  income_ceiling_monthly: 51910           # מעל זה אין חיוב נוסף
