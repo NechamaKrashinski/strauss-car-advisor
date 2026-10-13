@@ -9,4 +9,5 @@ langchain-core
 langchain-anthropic
 langchain-openai
 langgraph
+langgraph-checkpoint-sqlite
 pytest
