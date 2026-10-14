@@ -10,4 +10,5 @@ langchain-anthropic
 langchain-openai
 langgraph
 langgraph-checkpoint-sqlite
+truststore
 pytest
